@@ -1,7 +1,16 @@
 # Consultas
 
 ```
-# Consulta
+# Consulta User
+{
+  user {
+    id
+    userName
+  }
+}
+
+
+# Consulta Users
 {
   users {
     id
