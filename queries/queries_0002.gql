@@ -1,0 +1,12 @@
+{
+  user (id: "602") {
+    firstName lastName userName indexRef createdAt
+  }
+}
+
+
+{
+  users {
+    firstName lastName userName indexRef createdAt
+  }
+}
