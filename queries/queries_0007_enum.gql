@@ -15,3 +15,21 @@ query GET_USERS(
     createdAt
   }
 }
+
+
+## Outro exemplo
+query GET_POST {
+  post(id: "8600") {
+
+    __typename
+
+    ... on Post {
+      id
+      title
+    }
+    ... on PostNotFoundError {
+      statusCode
+      message
+    }
+  }
+}
