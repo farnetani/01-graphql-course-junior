@@ -1,0 +1,51 @@
+# Cria o fragmento post no tipo Post
+fragment post on Post {
+  title
+  createdAt
+  unixTimestamp
+}
+{
+  post342: post(id: "342") {
+		...post
+  }
+  post860: post(id: "860") {
+    ...post
+  }
+}
+
+## Outro exemplo
+fragment post on Post {
+  id
+  title
+  body
+  indexRef
+  createdAt
+  unixTimestamp
+}
+{
+  post1: post(id: "342") {
+		...post
+  }
+  post2: post(id: "860") {
+    ...post
+  }
+}
+
+## Outro Exemplo ocultando os campos em todos
+# Cria o fragmento post no tipo Post
+fragment post on Post {
+  id
+  title
+  #body
+  #indexRef
+  createdAt
+  unixTimestamp
+}
+{
+  post1: post(id: "342") {
+		...post
+  }
+  post2: post(id: "860") {
+    ...post
+  }
+}
