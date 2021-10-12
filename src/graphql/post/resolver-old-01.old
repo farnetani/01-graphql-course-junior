@@ -7,6 +7,7 @@ const post = async (_, { id }, { getPosts }) => {
       statusCode: 500,
       message: 'Post timeout!',
       timeout: 123,
+      timeout: 123,
     }
   }
 
@@ -27,12 +28,6 @@ const posts = async (_, { input }, { getPosts }) => {
   return response.json()
 }
 
-// const user = async (parent) => {
-const user = async ({ userId }, _, { getUsers }) => {
-  const response = await getUsers('/' + userId)
-  return response.json()
-}
-
 export const postResolvers = {
   Query: { post, posts },
   Post: {
@@ -40,7 +35,6 @@ export const postResolvers = {
       const timestamp = new Date(createdAt).getTime() / 1000
       return Math.floor(timestamp)
     },
-    user: user,
   },
   PostResult: {
     __resolveType: (obj) => {

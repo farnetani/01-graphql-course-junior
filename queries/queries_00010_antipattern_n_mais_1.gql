@@ -1,0 +1,17 @@
+{
+  posts(input: {
+    _sort: "indexRef"
+    _order: DESC
+    _start: 0
+    _limit: 5
+  }) {
+    indexRef
+    title
+    createdAt
+    unixTimestamp
+    user {
+      id
+      firstName
+    }
+  }
+}
