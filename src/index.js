@@ -2,6 +2,7 @@ import { ApolloServer } from 'apollo-server'
 import { resolvers, typeDefs } from './graphql/schema'
 import { context } from './graphql/context'
 import { PostsApi } from './graphql/post/datasources'
+import { UsersApi } from './graphql/user/datasources'
 
 // Types Scalar: ID, String, Int, Float, Boolean
 // Por padrão vem null, se nao quiser, tem que por !
@@ -13,6 +14,7 @@ const server = new ApolloServer({
   context,
   dataSources: () => {
     return {
+      userApi: new UsersApi(),
       postApi: new PostsApi(),
     }
   },
