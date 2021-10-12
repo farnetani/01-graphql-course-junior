@@ -3,3 +3,8 @@ export const getUsers =
   (fetch) =>
   (path = '/') =>
     fetch(API_URL + '/users' + path)
+
+export const getPosts =
+  (fetch) =>
+  (path = '/') =>
+    fetch(API_URL + '/posts' + path)

@@ -14,6 +14,11 @@ const users = async (_, { input }, { getUsers }) => {
   return users.json()
 }
 
+const posts = async ({ id }, _, { postDataLoader }) => {
+  // Dataloader
+  return postDataLoader.load(id)
+}
+
 export const userResolvers = {
   Query: {
     // Mover para uma função separada
@@ -27,4 +32,5 @@ export const userResolvers = {
     user,
     users,
   },
+  User: { posts },
 }

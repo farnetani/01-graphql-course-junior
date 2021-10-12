@@ -1,13 +1,16 @@
 import fetch from 'node-fetch'
-import { getUsers } from './user/utils'
+import { getPosts, getUsers } from './user/utils'
 import { makeUserDataLoader } from './user/dataloaders'
+import { makePostDataLoader } from './post/dataloaders'
 
-const API_URL = process.env.API_URL || 'http://localhost:3000'
+const _getUsers = getUsers(fetch)
+const _getPosts = getPosts(fetch)
 
 export const context = () => {
   return {
-    userDataLoader: makeUserDataLoader(getUsers(fetch)),
-    getUsers: getUsers(fetch),
-    getPosts: (path = '/') => fetch(API_URL + '/posts' + path),
+    postDataLoader: makePostDataLoader(_getPosts),
+    userDataLoader: makeUserDataLoader(_getUsers),
+    getUsers: _getUsers,
+    getPosts: _getPosts,
   }
 }
